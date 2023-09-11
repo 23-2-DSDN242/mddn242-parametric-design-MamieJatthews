@@ -46,6 +46,8 @@ function drawLetter(letterData) {
   fill(15, 68, 99);
   rect(20, 50, 60, 100, 5);
 
+  print("The variable is: " + line1top);
+
   stroke(90, 156, 196, 130);
   strokeWeight(8);
   line(27, line1top-5, 27, line1bot+5);
@@ -62,8 +64,20 @@ function drawLetter(letterData) {
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
   new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
+  new_letter["size2"]    = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
   new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
   new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
+  new_letter["offset2y"] = map(percent, 0, 100, oldObj["offset2y"], newObj["offset2y"]);
+  new_letter["line1top"] = map(percent, 0, 100, oldObj["line1top"], newObj["line1top"]);
+  new_letter["line1bot"] = map(percent, 0, 100, oldObj["line1bot"], newObj["line1bot"]);
+  new_letter["line2top"] = map(percent, 0, 100, oldObj["line2top"], newObj["line2top"]);
+  new_letter["line2bot"] = map(percent, 0, 100, oldObj["line2bot"], newObj["line2bot"]);
+  new_letter["line3top"] = map(percent, 0, 100, oldObj["line3top"], newObj["line3top"]);
+  new_letter["line3bot"] = map(percent, 0, 100, oldObj["line3bot"], newObj["line3bot"]);
+  new_letter["line4top"] = map(percent, 0, 100, oldObj["line4top"], newObj["line4top"]);
+  new_letter["line4bot"] = map(percent, 0, 100, oldObj["line4bot"], newObj["line4bot"]);
+
   return new_letter;
 }
 
