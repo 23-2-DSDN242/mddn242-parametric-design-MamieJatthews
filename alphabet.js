@@ -40,7 +40,7 @@ function mouseClicked() {
 
 function draw () {
   // clear screen
-  background(systemBackgroundColor);
+  background(6, 36, 54);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;  
@@ -66,7 +66,7 @@ function draw () {
     translate(0, j);
 
     // draw lines
-    stroke(systemLineColor);
+    stroke(182, 215, 240);
     line(left_margin, 0, right_margin, 0);
     for (let i=left_margin; i<right_margin-8; i+=30) {
       line(i, 100, i+12, 100);

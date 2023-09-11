@@ -43,15 +43,15 @@ function drawLetter(letterData) {
 
   // draw two circles
   noStroke();
-  fill(28, 97, 138);
+  fill(15, 68, 99);
   rect(20, 50, 60, 100, 5);
 
   stroke(90, 156, 196, 130);
   strokeWeight(8);
-  line(27, line1top, 27, line1bot);
-  line(42, line2top, 42, line2bot);
-  line(57, line3top, 57, line3bot);
-  line(72, line4top, 72, line4bot);
+  line(27, line1top-5, 27, line1bot+5);
+  line(42, line2top-5, 42, line2bot+5);
+  line(57, line3top-5, 57, line3bot+5);
+  line(72, line4top-5, 72, line4bot+5);
 
   noStroke();
   fill(7, 36, 54, 120);
