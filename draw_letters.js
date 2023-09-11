@@ -16,20 +16,47 @@ const strokeColor  = "#03045e";
  * from (0,0) to (100, 200)
  */
 function drawLetter(letterData) {
-  // color/stroke setup
-  stroke(strokeColor);
-  strokeWeight(4);
-
   // determine parameters for second circle
+  let posx = 50;
+  let posy = 100;
+
   let size2 = letterData["size"];
-  let pos2x = 50  + letterData["offsetx"];
-  let pos2y = 150 + letterData["offsety"];
+  let size3 = letterData["size2"];
+  let pos2x = posx + letterData["offsetx"];
+  let pos2y = posy + letterData["offsety"];
+  let pos3y = posy + letterData["offset2y"];
+  let pos3x = posx + letterData["offset2x"];
+  
+  let line1top = posx + letterData["line1top"]
+  let line1bot = posy + letterData["line1bot"]
+
+  let line2top = posx + letterData["line2top"]
+  let line2bot = posy + letterData["line2bot"]
+
+  let line3top = posx + letterData["line3top"]
+  let line3bot = posy + letterData["line3bot"]
+
+  let line4top = posx + letterData["line4top"]
+  let line4bot = posy + letterData["line4bot"]
+
+  
 
   // draw two circles
-  fill(darkBlue);
-  ellipse(50, 150, 75, 75);
-  fill(lightBlue);
+  noStroke();
+  fill(28, 97, 138);
+  rect(20, 50, 60, 100, 5);
+
+  stroke(90, 156, 196, 130);
+  strokeWeight(8);
+  line(27, line1top, 27, line1bot);
+  line(42, line2top, 42, line2bot);
+  line(57, line3top, 57, line3bot);
+  line(72, line4top, 72, line4bot);
+
+  noStroke();
+  fill(7, 36, 54, 120);
   ellipse(pos2x, pos2y, size2, size2);
+  ellipse(pos3x, pos3y, size3, size3);
 }
 
 function interpolate_letter(percent, oldObj, newObj) {

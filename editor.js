@@ -6,8 +6,26 @@
  */
 const sliderInfo = [
   ["size",       0, 100],
-  ["offsetx",  -30,  30],
-  ["offsety", -100, 100]
+
+
+  ["size", 0, 200],
+  ["size2", 0, 200],
+  ["offsetx", -100, 100],
+  ["offsety", -300, 300],
+  ["offset2x", -100, 100],
+  ["offset2y", -100, 100],
+  
+  ["line1top",  -100, 100],
+  ["line1bot",  -100, 200],
+
+  ["line2top",  -100, 100],
+  ["line2bot",  -100, 200],
+
+  ["line3top",  -100, 100],
+  ["line3bot",  -100, 200],
+
+  ["line4top",  -100, 100],
+  ["line4bot",  -100, 200],
 ];
 
 // PROBABLY DON'T NEED TO EDIT ANYTHING ELSE. STOP HERE.
@@ -15,7 +33,7 @@ const sliderInfo = [
 const numSliders = sliderInfo.length;
 
 if (typeof systemBackgroundColor === 'undefined') {
-    var systemBackgroundColor = "#e3eded";
+    var systemBackgroundColor = "#072436";
 }
 
 // this will use variables if they are already defined
@@ -72,7 +90,7 @@ function buttonPressedEvent() {
 
 function draw () {
   // clear screen
-  background(systemBackgroundColor);
+  background(6, 36, 54);
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
