@@ -46,8 +46,6 @@ function drawLetter(letterData) {
   fill(15, 68, 99);
   rect(20, 50, 60, 100, 5);
 
-  print("The variable is: " + line1top);
-
   stroke(90, 156, 196, 130);
   strokeWeight(8);
   line(27, line1top-5, 27, line1bot+5);
@@ -61,23 +59,64 @@ function drawLetter(letterData) {
   ellipse(pos3x, pos3y, size3, size3);
 }
 
+//create interpolation which shifts the letter gradually; the circles inerpolate first then the lines. 
 function interpolate_letter(percent, oldObj, newObj) {
-  let new_letter = {};
-  new_letter["size"]    = map(percent, 0, 100, oldObj["size"], newObj["size"]);
-  new_letter["size2"]    = map(percent, 0, 100, oldObj["size2"], newObj["size2"]);
-  new_letter["offsetx"] = map(percent, 0, 100, oldObj["offsetx"], newObj["offsetx"]);
-  new_letter["offsety"] = map(percent, 0, 100, oldObj["offsety"], newObj["offsety"]);
-  new_letter["offset2x"] = map(percent, 0, 100, oldObj["offset2x"], newObj["offset2x"]);
-  new_letter["offset2y"] = map(percent, 0, 100, oldObj["offset2y"], newObj["offset2y"]);
-  new_letter["line1top"] = map(percent, 0, 100, oldObj["line1top"], newObj["line1top"]);
-  new_letter["line1bot"] = map(percent, 0, 100, oldObj["line1bot"], newObj["line1bot"]);
-  new_letter["line2top"] = map(percent, 0, 100, oldObj["line2top"], newObj["line2top"]);
-  new_letter["line2bot"] = map(percent, 0, 100, oldObj["line2bot"], newObj["line2bot"]);
-  new_letter["line3top"] = map(percent, 0, 100, oldObj["line3top"], newObj["line3top"]);
-  new_letter["line3bot"] = map(percent, 0, 100, oldObj["line3bot"], newObj["line3bot"]);
-  new_letter["line4top"] = map(percent, 0, 100, oldObj["line4top"], newObj["line4top"]);
-  new_letter["line4bot"] = map(percent, 0, 100, oldObj["line4bot"], newObj["line4bot"]);
+  let new_letter = {}; 
+  if(percent <= 40) {//first 40% of the animation interpolates the cirlces 
+  //Circle parameters shift from oldObj to NewObj
+  new_letter["size"]    = map(percent, 0, 50, oldObj["size"], newObj["size"]);
+  new_letter["size2"]    = map(percent, 0, 50, oldObj["size2"], newObj["size2"]);
+  new_letter["offsetx"] = map(percent, 0, 50, oldObj["offsetx"], newObj["offsetx"]);
+  new_letter["offsety"] = map(percent, 0, 50, oldObj["offsety"], newObj["offsety"]);
+  new_letter["offset2x"] = map(percent, 0, 50, oldObj["offset2x"], newObj["offset2x"]);
+  new_letter["offset2y"] = map(percent, 0, 50, oldObj["offset2y"], newObj["offset2y"]);
+  //line parameters stay at oldObj
+  new_letter["line1top"] = oldObj["line1top"]
+  new_letter["line1bot"] = oldObj["line1bot"]
+  new_letter["line2top"] = oldObj["line2top"]
+  new_letter["line2bot"] = oldObj["line2bot"]
+  new_letter["line3top"] = oldObj["line3top"]
+  new_letter["line3bot"] = oldObj["line3bot"]
+  new_letter["line4top"] = oldObj["line4top"]
+  new_letter["line4bot"] = oldObj["line4bot"]
+  }
+  if(percent >= 60) {//Final 60% of the animation interpolates the line paramters
+  //Circle Parameters stay at their newObj
+  new_letter["size"]    = newObj["size"];
+  new_letter["size2"]    = newObj["size2"];
+  new_letter["offsetx"] = newObj["offsetx"];
+  new_letter["offsety"] = newObj["offsety"];
+  new_letter["offset2x"] = newObj["offset2x"];
+  new_letter["offset2y"] = newObj["offset2y"];
+  //line parameters interpolate from oldObj to NewObj
+  new_letter["line1top"] = map(percent, 50, 100, oldObj["line1top"], newObj["line1top"]);
+  new_letter["line1bot"] = map(percent, 50, 100, oldObj["line1bot"], newObj["line1bot"]);
+  new_letter["line2top"] = map(percent, 50, 100, oldObj["line2top"], newObj["line2top"]);
+  new_letter["line2bot"] = map(percent, 50, 100, oldObj["line2bot"], newObj["line2bot"]);
+  new_letter["line3top"] = map(percent, 50, 100, oldObj["line3top"], newObj["line3top"]);
+  new_letter["line3bot"] = map(percent, 50, 100, oldObj["line3bot"], newObj["line3bot"]);
+  new_letter["line4top"] = map(percent, 50, 100, oldObj["line4top"], newObj["line4top"]);
+  new_letter["line4bot"] = map(percent, 50, 100, oldObj["line4bot"], newObj["line4bot"]);
+  }
 
+  else if(percent > 40 && percent < 60) {//Create a pause in the middle 40% - 60%
+  //line parameters stay at oldObj
+  new_letter["line1top"] = oldObj["line1top"]
+  new_letter["line1bot"] = oldObj["line1bot"]
+  new_letter["line2top"] = oldObj["line2top"]
+  new_letter["line2bot"] = oldObj["line2bot"]
+  new_letter["line3top"] = oldObj["line3top"]
+  new_letter["line3bot"] = oldObj["line3bot"]
+  new_letter["line4top"] = oldObj["line4top"]
+  new_letter["line4bot"] = oldObj["line4bot"]
+  //Circle parameters stay at newObj  
+  new_letter["size"]    = newObj["size"];
+  new_letter["size2"]    = newObj["size2"];
+  new_letter["offsetx"] = newObj["offsetx"];
+  new_letter["offsety"] = newObj["offsety"];
+  new_letter["offset2x"] = newObj["offset2x"];
+  new_letter["offset2y"] = newObj["offset2y"];
+  }
   return new_letter;
 }
 
