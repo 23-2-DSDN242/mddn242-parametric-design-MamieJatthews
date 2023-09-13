@@ -1,17 +1,6 @@
 const canvasWidth = 960;
 const canvasHeight = 500;
 
-/*
- * my three variable per letter are:
- *
-   size: radius of the second circle (in pixels)
-   offsetx: x offset (in pixels) of the second circle
-            relative to the first one
-   offsety: y offset (in pixels) of the second circle
-            relative to the first one
- *
- */
-
 const letterA = {
   "size": 125,
   "size2": 90,
@@ -75,21 +64,10 @@ const letterC = {
   "line4bot": 270,
 }
 
-const backgroundColor  = "#caf0f8";
-const strokeColor      = "#03045e";
-
-const darkBlue  = "#0077b6";
-const lightBlue  = "#fcdf03";
-
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
-
-  // color/stroke setup
-  // stroke(strokeColor);
-  // strokeWeight(4);
-  //noStroke();
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
@@ -97,7 +75,7 @@ function setup () {
 
 function draw () {
   // clear screen
-  background(6, 36, 54);
+  background(6, 36, 54);//Dark Blue
 
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
@@ -110,46 +88,41 @@ function draw () {
 }
 
 function drawLetter(posx, posy, letterData) {
-  // determine parameters for second circle
+  //Determine Parameters
+  //Cricles
   let size2 = letterData["size"];
   let size3 = letterData["size2"];
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
   let pos3y = posy + letterData["offset2y"];
   let pos3x = posx + letterData["offset2x"];
-  
+  //Lines
   let line1top = posx + letterData["line1top"]
   let line1bot = posy + letterData["line1bot"]
-
   let line2top = posx + letterData["line2top"]
   let line2bot = posy + letterData["line2bot"]
-
   let line3top = posx + letterData["line3top"]
   let line3bot = posy + letterData["line3bot"]
-
   let line4top = posx + letterData["line4top"]
   let line4bot = posy + letterData["line4bot"]
 
-  
-
-  // draw two circles
+  //Draw Shapes 
+  //Stationary rectangle 
   noStroke();
   fill(28, 97, 138);
   rect(posx, posy, 150, 250, 20);
-  
+  //4 lines which can be moved vertically but stay horizontally in the same place 
   stroke(90, 156, 196, 130);
   strokeWeight(20);
   line(posx+20, line1top, posx+20, line1bot);
   line(posx+55, line2top, posx+55, line2bot);
   line(posx+95, line3top, posx+95, line3bot);
   line(posx+130, line4top, posx+130, line4bot);
-
+  //2 Circles which can be shifted horizontally and vertically and adjust size 
   noStroke();
   fill(6, 36, 54, 120);
   ellipse(pos2x, pos2y, size2, size2);
   ellipse(pos3x, pos3y, size3, size3);
-  //ellipse(205, 200, 90);
-  //ellipse(495, 315, 90);
 }
 
 
