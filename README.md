@@ -4,9 +4,14 @@
 
 (Replace this README with information about your alphabet. This is an example.)
 
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
+For Assignment 2 I have designed a simplistic typeface using abstract shapes. My design took inspiration from the default example provided in class with the 2 circles. I really liked the idea of having a stationary shape in the background while having other objects shift around it to form a legible typeface. I decided to go with a rectangle as my background shape as I liked the tall, sharp and capitalized shape alternative to a circle which would be more lowercase focused. Rather than building form around the background shape I wanted to build on top of it and use negative space using cirlces. I liked this style and it worked great for my first 3 sketch letters, however when moving onto more letters I realised there werent enough parameters to create a legible typeface. to tackle this I decided to add lines which followed the form of the rectangle so I could add more detail to the form of the letter. To reduce the parameter count I decided to keep them stationary on the horizontal plane and was only able to shift the vertical orientaion and height of the line.   
 
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
+Each letter from my typeface consisted of 14 different parameters. The background rectangle had no parameters and was fixed in the same place for each letter. On top of the rectangle were my 2 circles. Each circle had 3 parameters;
+"Size" - adjusted the scale of the radius of the circle. 
+"offsetx" - Adjusted the orientaion of the cirlce along the x-axis
+"offsety" - Adjusted the orientaion of the cirlce along the y-axis
+These 3 paramaters alone created enough variety to create the simplified version of almost every letter. To finalise the legibility of my letters, I had 4 lines each with 2 parameters;
+"Linetop" - Shifted the height of the top point of the line
+"Linebot" - Shifted the height of the bottom point of the line
+
+For my aesthetic. I wanted to maintain a simplistic and clean style. I liked the rounded edges on both the rectangle and the lines as it felt easier to look at and wasnt as extreme as having sharp edges. For the colour pallete I experimented with a black and white and more colourful options but ended up resorting to a monotone blue. The black and white didnt have enough contrast and everyting felt like it blended to one shape. I struggled with having a mix of different colours as they clashed to much and often looked to messy, clashing with my minimalist approach. I went with a monotone blue pallete because it was simplistic and legible. 
